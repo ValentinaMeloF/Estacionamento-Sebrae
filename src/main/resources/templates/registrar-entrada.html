@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="pt-br" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registrar Entrada - Estacionamento</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+            background-color: #f3f4f6;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .card-container {
+            background-color: #ffffff;
+            padding: 40px 30px;
+            width: 100%;
+            max-width: 420px;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+        }
+
+        h2 {
+            margin-bottom: 24px;
+            color: #111827;
+            font-size: 22px;
+            font-weight: 700;
+            text-align: center;
+        }
+
+        .form-group {
+            margin-bottom: 16px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 6px;
+            font-size: 13px;
+            font-weight: 600;
+            color: #374151;
+        }
+
+        input {
+            width: 100%;
+            padding: 12px 14px;
+            border: 1px solid #d1d5db;
+            border-radius: 8px;
+            font-size: 14px;
+            color: #1f2937;
+            outline: none;
+            transition: all 0.2s ease;
+        }
+
+        input:focus {
+            border-color: #16a34a;
+            box-shadow: 0 0 0 3px rgba(22, 163, 74, 0.2);
+        }
+
+        .actions {
+            display: flex;
+            gap: 12px;
+            margin-top: 24px;
+        }
+
+        button[type="submit"] {
+            flex: 1;
+            padding: 12px;
+            background-color: #16a34a;
+            color: #ffffff;
+            border: none;
+            border-radius: 8px;
+            font-size: 15px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background-color 0.2s ease, transform 0.1s ease;
+        }
+
+        button[type="submit"]:hover {
+            background-color: #15803d;
+        }
+
+        button[type="submit"]:active {
+            transform: scale(0.98);
+        }
+
+        a.btn-cancelar {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 12px 18px;
+            background-color: #e5e7eb;
+            color: #374151;
+            border-radius: 8px;
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 600;
+            transition: background-color 0.2s ease;
+        }
+
+        a.btn-cancelar:hover {
+            background-color: #d1d5db;
+        }
+    </style>
+</head>
+<body>
+
+<div class="card-container">
+    <h2>Registrar Entrada de Veículo</h2>
+
+    <form th:action="@{/veiculo/cadastrar}" method="post">
+        <div class="form-group">
+            <label for="placa">Placa do Veículo</label>
+            <input type="text" id="placa" name="placa" placeholder="Ex: ABC-1234" required style="text-transform: uppercase;">
+        </div>
+
+        <div class="form-group">
+            <label for="modelo">Modelo</label>
+            <input type="text" id="modelo" name="modelo" placeholder="Ex: Honda Civic" required>
+        </div>
+
+        <div class="form-group">
+            <label for="cor">Cor</label>
+            <input type="text" id="cor" name="cor" placeholder="Ex: Preto" required>
+        </div>
+
+        <div class="form-group">
+            <label for="observacoes">Observações (Opcional)</label>
+            <input type="text" id="observacoes" name="observacoes" placeholder="Ex: Avaria no pára-choque">
+        </div>
+
+        <div class="actions">
+            <a th:href="@{/autenticar}" class="btn-cancelar">Voltar</a>
+            <button type="submit">Salvar Entrada</button>
+        </div>
+    </form>
+</div>
+
+</body>
+</html>
