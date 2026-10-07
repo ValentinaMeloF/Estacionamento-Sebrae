@@ -85,3 +85,5 @@ public class VeiculoEntity {
         this.horaEntrada = horaEntrada;
     }
 }
+
+//aa
