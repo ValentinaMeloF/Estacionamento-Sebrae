@@ -47,6 +47,6 @@ public class VeiculoController {
         model.addAttribute("veiculos", veiculos);
         model.addAttribute("veiculo", veiculoSelecionado);
 
-        return "registrar-saida";
+        return "redirect:/veiculo/registrar-saida";
     }
 }

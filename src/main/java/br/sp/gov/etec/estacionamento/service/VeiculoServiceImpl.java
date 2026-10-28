@@ -29,6 +29,11 @@ public class VeiculoServiceImpl implements VeiculoService{
     @Override
     public List<VeiculoEntity> listaVeiculo() {
         List<VeiculoEntity> veiculos = repository.findAll();
+        List<VeiculoEntity> veiculosFiltrados = new ArrayList<>();
+        for(VeiculoEntity veiculo : veiculos){
+            if(veiculo.getEstacionado()==null)
+            veiculosFiltrados.add(veiculo);
+        }
         return veiculos;
     }
 
